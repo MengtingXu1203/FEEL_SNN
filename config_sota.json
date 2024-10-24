@@ -1,0 +1,8 @@
+[
+    {"attack": "clean"},
+    {"attack": "gn", "eps": 8, "bb": false, "attack_mode": "bptt"},
+    {"attack": "fgsm", "eps": 8, "bb": false, "attack_mode": "bptt"},
+    {"attack": "pgd", "eps": 8, "bb": false, "alpha": 2.55, "steps":7, "attack_mode": "bptt"},
+    {"attack": "bim", "eps": 8, "bb": false, "alpha": 2.55, "steps":7, "attack_mode": "bptt"},
+    {"attack": "cw", "bb": false, "attack_mode": "bptt"}
+]
