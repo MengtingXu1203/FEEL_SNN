@@ -173,7 +173,7 @@ class LIFSpikeTau(nn.Module):
         self.up = 1
         self.shape = shape
 
-        self.taus = nn.Parameter(torch.full((T,) + tuple(shape), fill_value=1.0))
+        self.taus = nn.Parameter(torch.full((T,) + tuple(shape), fill_value=1.0)) ##EL
 
     def forward(self, x):
         if self.mode == 'bptr' and self.T > 0:
@@ -187,8 +187,6 @@ class LIFSpikeTau(nn.Module):
             spike_pot = []
             for t in range(self.T):
                 mem = mem * (self.taus[t].to(x)) + x[t, ...]
-                
-
                 spike = self.act(mem - self.thresh, 1)
                 mem = (1 - spike) * mem
                 spike_pot.append(spike)

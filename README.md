@@ -35,11 +35,23 @@ The Following Setup is tested and it is working:
 
 ## FEEL Training \& Testing
 
-Take CIFAR10, VGG11 as an example
++ Script for Vanilla+FEEL
 
-   + train: run `bash script/cifar10_vgg11.sh`; 
+  train: run `bash script/vanilla_feel.sh`; 
    
-   + test: run `bash script/cifar10_vgg11_test.sh`.
+  test: run `bash script/vanilla_feel_test.sh`.
+
++ Script for AT+FEEL
+
+  train: run `bash script/at_feel.sh`; 
+   
+  test: run `bash script/at_feel_test.sh`.
+
++ Script for RAT+FEEL
+
+  train: run `bash script/rat_feel.sh`; 
+   
+  test: run `bash script/rat_feel_test.sh`.
 
 ## Citation
 ```
@@ -50,5 +62,6 @@ Take CIFAR10, VGG11 as an example
   year={2024}
 }
 ```
-      
+
+Repository Contributor: [Mengting Xu](https://github.com/MengtingXu1203/FEEL_SNN), [Qian Zheng](https://person.zju.edu.cn/en/zq)
  

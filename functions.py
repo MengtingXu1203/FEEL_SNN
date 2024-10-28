@@ -43,12 +43,6 @@ def BPTT_attack(freq_filter, model, image, T):
     model.module.set_simulation_time(T)
     return output
 
-def BPTR_attack(model, image, T,freq_filter=None):
-    model.set_simulation_time(T, mode='bptr')
-    output = model(image,freq_filter).mean(0)
-    model.set_simulation_time(T)
-    return output
-
 def Act_attack(model, image, T):
     model.set_simulation_time(0)
     output = model(image)
@@ -72,15 +66,4 @@ def make_filter_0(H, W, filter_windows):
         result.append(output)
     return torch.stack(result, 0).cuda()
 
-def random_filter_image(image, H, W, min_size, max_size): 
-    r = random.randint(min_size, max_size)
-    crow = int(H / 2)
-    ccol = int(W / 2)
-    filt = torch.zeros([H, W]) 
-    filt[crow-r:crow+r, ccol-r:ccol+r] = 1 
-    fourier_transform = torch.fft.fftshift(torch.fft.fft2(image, dim=(-2, -1)))
-    mask_image = fourier_transform * filt.unsqueeze(0).unsqueeze(0)
-    freq_image = torch.abs(torch.fft.ifft2(torch.fft.ifftshift(mask_image), dim=(-1, -2)))
-
-    return freq_image
 

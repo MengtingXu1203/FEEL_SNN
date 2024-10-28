@@ -149,12 +149,6 @@ def main():
         identifier += "_poisson"
     elif args.encode == 'ft':
         identifier += '_ft'
-    elif args.encode == 'dct':
-        identifier += '_dct'
-    elif args.encode == 'constant':
-        identifier += '_constant'
-    elif args.encode == 'eeft':
-        identifier += '_eeft'
     identifier += args.suffix
 
     writer_tensorboard = SummaryWriter(f'logs/'+'%s-checkpoints-epoch%s/'%(args.dataset,args.epochs) + '%s'%(identifier) + "/")
